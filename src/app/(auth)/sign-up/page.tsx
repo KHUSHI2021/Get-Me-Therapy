@@ -91,8 +91,7 @@ const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
 
     // Default error message
     let errorMessage = axiosError.response?.data.message;
-    ('There was a problem with your sign-up. Please try again.');
-
+    
     toast({
       title: 'Sign Up Failed',
       description: errorMessage,
