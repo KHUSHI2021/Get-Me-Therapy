@@ -1,13 +1,17 @@
 import mongoose,{Schema,Document} from "mongoose";
+import messages from '@/messages.json';
 
 
 export interface Message extends Document{  // an interface need to be given a name 
-                                             // and this data will goes to Document by using extends(sytax) for mongoose
+       
+     _id:string;    
+     messages: string;                                   // and this data will goes to Document by using extends(sytax) for mongoose
     content:string;
     createdAt:Date
+    type:string;
 }
 
-const MessageSchema: Schema<Message> =new Schema({
+const MessageSchema: Schema<Message> = new Schema({
   content:{
     type:String,   //in mongoose neet to write string in " 1"Capital later 
     required :true

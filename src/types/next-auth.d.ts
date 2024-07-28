@@ -11,7 +11,7 @@ declare module 'next-auth'{
         user:{
         _id?:string;
         isVerified?:boolean;
-        isAcceptingMessages?:boolean;
+        isAcceptingMessage?:boolean;
         username?:string
         } & DefaultSession['user'];
     
