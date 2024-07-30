@@ -22,12 +22,12 @@ const Navbar=()=> {
             session ?(
                 <>
                 <span className='mb-5'> welcome. {user.username || user.email}</span>
-               <button className = 'w-full md:w-auto' onClick={()=> signOut()}> Logout</button>
+               <Button className = 'w-full md:w-auto' onClick={()=> signOut()}> Logout</Button>
 
 </>
             ):(
                 <Link href="/sign-in" >
-                    <button className = 'w-full md:w-auto'>Login</button>
+                    <Button className = 'w-full md:w-auto'>Login</Button>
                   </Link>
             )
         }

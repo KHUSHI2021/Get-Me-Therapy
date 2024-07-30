@@ -1,5 +1,5 @@
 'use client'
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -7,15 +7,25 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { Skeleton } from "@/components/ui/skeleton"
 
 import messages from "@/messages.json"
 
 import Autoplay from "embla-carousel-autoplay"
 
 const Home =() => {
-
+<>
 
   return (
+{/*  skeleten effect when data load the it will show */}
+
+    <div className="flex flex-col space-y-3">
+      <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>
   
 <main className = 'flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12'>
  <section className="text-center mb-8 md:mb-12">
@@ -29,25 +39,34 @@ const Home =() => {
  plugins={[Autoplay({delay: 2000})]}
  className="w-full max-w-xs">
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index}>
+        {
+          messages.map((message,index)=>(
+
+            <CarouselItem key={index}>
             <div className="p-1">
               <Card>
+             < CardHeader>
+             {message.title}
+             </CardHeader>
+
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+                  <span className="text-lgs font-semibold">{message.content}</span>
                 </CardContent>
               </Card>
             </div>
           </CarouselItem>
-        ))}
+          ))
+        }
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-
-
   </main>
+
+  <footer className="text-center p-4 md:p-6"> @2024 Mystery message. All right reserved</footer>
   )
+
+  </>
 }
 
 export default Home

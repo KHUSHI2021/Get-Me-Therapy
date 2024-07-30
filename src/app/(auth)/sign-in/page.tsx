@@ -1,24 +1,18 @@
-'use client'
+ 'use client'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import Link from "next/link"
-import { useEffect,useState } from "react"
-import { useDebounceValue,useDebounceCallback } from 'usehooks-ts';
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from 'next/navigation';
 import { signInSchema } from "@/schemas/signInSchema"
-//import messages from '@/messages.json';
-import axios,{ AxiosError} from 'axios';
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { ApiResponse } from "@/types/ApiResponse"
 import { Button } from "@/components/ui/button"
-import { Loader2 } from "lucide-react"
 import { signIn } from "next-auth/react"
-//import { Checkbox } from '@/components/ui/checkbox';
 
-export default function signUpForm(){
+
+export default function signInForm(){
 
 //const page = ()=> {
     
@@ -91,10 +85,10 @@ return (
             render={({ field }) => (
             <FormItem>
             <FormLabel>Email/Username</FormLabel>
-            <FormControl>
+           
             <Input  placeholder="email/username"
             {...field} />
-          </FormControl>
+        
             <FormMessage />
           </FormItem>
         )}
@@ -116,7 +110,7 @@ return (
           />
 
         <Button type="submit" className='w-full'>
-          signIn
+          sign In
           </Button>
          {/*  <Button className='w-full' type="submit">Sign In</Button> */}
         </form>

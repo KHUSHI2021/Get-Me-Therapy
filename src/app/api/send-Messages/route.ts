@@ -2,12 +2,13 @@ import UserModel from "@/app/model/User";
 import dbConnect from "@/lib/dbConnect";
 import { Message } from "@/app/model/User";
 //import messages from '@/messages.json';
+import { twMerge } from 'tailwind-merge';
 
 export async function POST(request: Request){
     await dbConnect()
     const {username,content}=await request.json()
     try {
-       const user= UserModel.findOne({username}).exec();
+       const user= await UserModel.findOne({username}).exec();
         if (!user) {
 
             return Response.json(
@@ -20,7 +21,7 @@ export async function POST(request: Request){
             )
             
         }
-       if (!user.isAcceptingMessages){
+       if (!user.isAcceptingMessage){
         return Response.json(
             {
               success:false,
@@ -58,3 +59,29 @@ export async function POST(request: Request){
 
 }
 
+
+
+/*import dbConnect from "@/lib/dbConnect";
+import { sendVerificationEmail } from "@/helpers/sendVerificationCode";
+import { messageSchema } from "@/schemas/messageSchema";
+
+export async function POST(request:Request){
+    await dbConnect()
+
+    try{
+        const{username,email,password}= await request.json()
+    }
+    catch (error){
+        console.error('Error registering user',error)
+        return Response.json(
+            {
+                success:false,
+                message:"error registering user"
+            },
+            {
+                status:500
+            }
+        )
+    }
+}
+   */

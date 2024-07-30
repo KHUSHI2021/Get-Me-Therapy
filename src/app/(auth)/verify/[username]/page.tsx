@@ -1,17 +1,15 @@
 'use client'
-
 import { useToast } from '@/components/ui/use-toast'
-import { signUpSchema } from '@/schemas/signUpSchema'
 import { verifySchema } from '@/schemas/verifySchema'
 import { ApiResponse } from '@/types/ApiResponse'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
 import { useParams,useRouter } from 'next/navigation'
-import { title } from 'process'
+
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { Message } from '../../../model/User';
+
 import { FormField, FormItem, FormLabel, FormMessage, FormControl, Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -39,7 +37,7 @@ const VerifyAccount=()=> {
         description: response.data.message
     })
 
-    router.replace('sign-in')
+    router.replace('/sign-in')
 
     }
     catch(error){
@@ -60,7 +58,7 @@ const VerifyAccount=()=> {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
     <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
-      <div className="text-center">...
+      <div className="text-center">
         <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
           Verify Your Account
         </h1>
@@ -75,7 +73,7 @@ const VerifyAccount=()=> {
             
             render={({ field }) => (
               <FormItem>
-                <FormLabel>username</FormLabel>
+                <FormLabel>verification code </FormLabel>
                 <FormControl>
                 <Input placeholder = "shadcn" 
                 {...field} />

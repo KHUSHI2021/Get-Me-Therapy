@@ -3,7 +3,7 @@ import dbConnect from '@/lib/dbConnect';
 import { z } from 'zod';
 import { usernameValidation } from '@/schemas/signUpSchema';
 import UserModel from '@/app/model/User';
-import { NextRequest } from 'next/server';
+//import { NextRequest } from 'next/server';
 
 const UsernameQuerySchema = z.object({
   username: usernameValidation,

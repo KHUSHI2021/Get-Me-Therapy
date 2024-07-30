@@ -6,7 +6,7 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/app/model/User";
 //import { async } from '../../route';
 
-export const authOptions: NextAuthOptions={
+export const authOptions: NextAuthOptions= {
     providers:[
         CredentialsProvider({
             id: "credentials",

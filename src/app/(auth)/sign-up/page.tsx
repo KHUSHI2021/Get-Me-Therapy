@@ -1,10 +1,11 @@
+
 'use client'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import Link from "next/link"
 import { useEffect,useState } from "react"
-import { useDebounceValue,useDebounceCallback } from 'usehooks-ts';
+import { useDebounceCallback } from 'usehooks-ts';
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from 'next/navigation';
 import { signUpSchema } from "@/schemas/signUpSchema"
@@ -83,7 +84,7 @@ const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
 
     router.replace(`/verify/${username}`);
 
-    setIsSubmitting(false);
+    //setIsSubmitting(false);
   } catch (error) {
     console.error('Error during sign-up:', error);
 
@@ -195,3 +196,4 @@ return (
 }
 
 //export default page;
+

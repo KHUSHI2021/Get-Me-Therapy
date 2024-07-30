@@ -1,7 +1,7 @@
 'use client'
 
 import { Message } from "@/app/model/User"
-import { toast, useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 import { AcceptMessageSchema } from "@/schemas/acceptMessageSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import axios from "axios"
